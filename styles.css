@@ -30,6 +30,7 @@ body {
     font-size: 40px;
     margin: 6rem 0;
     border-radius: 0.75rem;
+    font-family: "Poppins", sans-serif;
   }
    
   #footer {
@@ -49,7 +50,7 @@ body {
     transition: all 0.3s ease-in-out;
     width: 3rem;
     height: 3rem;
-    background: #3b44fb;
+    background: rgb(20, 20, 206);
     color: white;
     text-align: center;
     font-size: 2rem;
@@ -61,7 +62,7 @@ body {
     border-radius: 30px;
   }
   #footer #taskAdd:hover {
-    background: #050fe5;
+    background: rgb(16, 182, 15);
     -webkit-transform: scale(0.95);
             transform: scale(0.95);
   }
@@ -113,7 +114,7 @@ body {
     will-change: transform;
   }
   #tasks #tasksList li:hover {
-    border-right: 55px solid red;
+    border-right: 65px solid red;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
     -webkit-transform: scale(1.05);
@@ -122,7 +123,7 @@ body {
     box-shadow: 0 20px 30px 0 rgba(1, 1, 1, 0.2);
   }
   #tasks #tasksList li:hover .delete {
-    right: -37px;
+    right: -55px;
     color: white;
   }
   #tasks #tasksList li .delete {
@@ -140,9 +141,6 @@ body {
     opacity: .75;
   }
   
-  #tasks #taskList:checked {
-      background-color: rgb(67, 206, 67);
-  }
    
   @-webkit-keyframes fadeIn {
     0% {

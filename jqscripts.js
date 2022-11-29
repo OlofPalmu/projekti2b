@@ -12,12 +12,10 @@ $(function () {
       $tasksList.append(
         "<li>" +
           $taskInput.val() +
-          "<button class='delete'>&#10006</button></li>"
+          "<button class='delete'>Poista</button></li>"
       );
       $taskInput.css("border", "none");
     }
-
-    
     $taskInput.val("");
 
     $(".delete").on("click", function () {
@@ -28,7 +26,7 @@ $(function () {
       $parent.css("animation", "fadeOut .3s linear");
       setTimeout(function () {
         $parent.remove();
-      }, 295);
+      }, 300);
     });
     });
 });
