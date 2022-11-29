@@ -2,6 +2,10 @@ $(function () {
 
   var $tasksList = $("#tasksList");
   var $taskInput = $("#taskInput");
+  $("#container").animate({
+      "margin-bottom" : "+=350px"
+  }, 1000);
+
 
   $("#taskAdd").on("click", function () {
     if (!$taskInput.val()) {
@@ -17,6 +21,7 @@ $(function () {
       $taskInput.css("border", "none");
     }
     $taskInput.val("");
+    $tasksList.sortable();
 
     $(".delete").on("click", function () {
       var $parent = $(this).parent();
@@ -29,4 +34,10 @@ $(function () {
       }, 300);
     });
     });
+    $taskInput.keyup(function(event){
+        if(event.keyCode == 13){
+            $("#taskAdd").click();
+        }
+    });
 });
+
