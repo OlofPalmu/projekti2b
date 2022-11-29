@@ -39,5 +39,8 @@ $(function () {
             $("#taskAdd").click();
         }
     });
+    $(document).on("dblclick", "li", function(){
+        $(this).toggleClass("valmis");
+    });
 });
 
