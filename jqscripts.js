@@ -3,7 +3,7 @@ $(function () {
   var $tasksList = $("#tasksList");
   var $taskInput = $("#taskInput");
   $("#container").animate({
-      "margin-bottom" : "+=350px"
+      "margin-bottom" : "+=100px"
   }, 1000);
 
 
