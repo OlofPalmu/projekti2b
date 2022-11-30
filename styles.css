@@ -121,6 +121,7 @@ body {
 
 #tasks #tasksList li:hover {
   border-right: 65px solid red;
+  border-left: 65px solid rgb(16, 182, 15);
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   -webkit-transform: scale(1.05);
@@ -143,6 +144,24 @@ body {
   outline: 0;
   line-height: 0.85rem;
   font-size: 1rem;
+}
+
+#tasks #tasksList li .ready {
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  color: transparent;
+  background: none;
+  border: none;
+  outline: 0;
+  line-height: 0.85rem;
+  font-size: 1rem;
+}
+
+#tasks #tasksList li:hover .ready {
+  left: -60px;
+  color: white;
+  cursor: pointer;
 }
 
 

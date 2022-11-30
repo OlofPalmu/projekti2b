@@ -14,7 +14,7 @@ $(function () {
       return false;
     } else {
       $tasksList.append(
-        "<li>" +
+        "<li>" + "<button class='ready'>Valmis</button>" +
           $taskInput.val() +
           "<button class='delete'>Poista</button></li>"
       );
@@ -23,7 +23,11 @@ $(function () {
     $taskInput.val("");
     $tasksList.sortable();
 
-    $(".delete").on("click", function () {
+    $(".ready").on("click", function(){
+      $(this).parent("li").toggleClass("valmis");
+  });
+
+    $(".delete").on("click", function(){
       var $parent = $(this).parent();
 
       $tasksList.css("none");
@@ -38,9 +42,6 @@ $(function () {
         if(event.keyCode == 13){
             $("#taskAdd").click();
         }
-    });
-    $(document).on("dblclick", "li", function(){
-        $(this).toggleClass("valmis");
     });
 });
 
