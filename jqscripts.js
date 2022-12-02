@@ -1,46 +1,51 @@
 $(function () {
+  // Helpotetaan työtä tekemällä muuttujat ID:stä
+  var $tehtäväLista = $("#tehtäväLista");
+  var $tehtäväInput = $("#tehtäväInput");
 
-  var $tasksList = $("#tasksList");
-  var $taskInput = $("#taskInput");
   $("#container").animate({
       "margin-bottom" : "+=100px"
   }, 1000);
 
-
-  $("#taskAdd").on("click", function () {
-    if (!$taskInput.val()) {
-      $taskInput.css("border", "solid 3px red");
+  // Tehdään funktio jolla luodaan uusi elementti sivulle.
+  $("#uusiTodo").on("click", function () {
+    if (!$tehtäväInput.val()) {
+      $tehtäväInput.css("border", "solid 3px red");
       alert("Kirjoita tekstikenttään jotain!");
       return false;
     } else {
-      $tasksList.append(
-        "<li>" + "<button class='ready'>Valmis</button>" +
-          $taskInput.val() +
+      $tehtäväLista.append(
+        "<li><button class='ready'>Valmis</button>" +
+          $tehtäväInput.val() +
           "<button class='delete'>Poista</button></li>"
       );
-      $taskInput.css("border", "none");
+      $tehtäväInput.css("border", "none");
     }
-    $taskInput.val("");
-    $tasksList.sortable();
 
+    // Nollataan teksikentän arvo ja tehdään sivun elementeistä siirreltäviä.
+    $tehtäväInput.val("");
+    $tehtäväLista.sortable();
+    
+    // Luodaan "Valmis napille toiminto, jolla saadaan tehtävä merkittyä tehdyksi
     $(".ready").on("click", function(){
-      $(this).parent("li").toggleClass("valmis");
+      var $tehtäväValmis = $(this).parent();
+      $tehtäväValmis.toggleClass("valmis");
   });
 
+  // Luodaan "Poista" napille toiminto, jolla poistetaan kyseinen elementti.
     $(".delete").on("click", function(){
-      var $parent = $(this).parent();
-
-      $tasksList.css("none");
-
-      $parent.css("animation", "fadeOut .3s linear");
+      var $tehtäväPoisto = $(this).parent();
+      $tehtäväPoisto.css("animation", "fadeOut .3s linear");
       setTimeout(function () {
-        $parent.remove();
+        $tehtäväPoisto.remove();
       }, 300);
     });
     });
-    $taskInput.keyup(function(event){
+
+    // Luodaan toiminto myös enter-näppäimelle
+    $tehtäväInput.keyup(function(event){
         if(event.keyCode == 13){
-            $("#taskAdd").click();
+            $("#uusiTodo").click();
         }
     });
 });
